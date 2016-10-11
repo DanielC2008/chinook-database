@@ -33,6 +33,12 @@ WHERE Customer.Country = 'Brazil'
 
 Provide a query that shows the invoices associated with each sales agent. The resultant table should include the Sales Agent's full name.
 
+SELECT Invoice.*, Employee.Title FROM Invoice
+JOIN Customer ON Invoice.CustomerId = Customer.CustomerId
+JOIN Employee ON Customer.SupportRepId = Employee.EmployeeId
+WHERE Employee.Title = 'Sales Support Agent'
+
+
 Provide a query that shows the Invoice Total, Customer name, Country and Sale Agent name for all invoices and customers.
 
 How many Invoices were there in 2009 and 2011? What are the respective total sales for each of those years?
