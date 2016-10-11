@@ -17,6 +17,9 @@ WHERE Customer.Country = 'Brazil'
 
 Provide a query showing only the Employees who are Sales Agents.
 
+SELECT * FROM Employee
+WHERE Title = 'Sales Support Agent'
+
 Provide a query showing a unique list of billing countries from the Invoice table.
 
 Provide a query showing the invoices of customers who are from Brazil.
