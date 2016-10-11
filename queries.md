@@ -27,6 +27,10 @@ GROUP BY BillingCountry
 
 Provide a query showing the invoices of customers who are from Brazil.
 
+SELECT * FROM Invoice
+JOIN Customer ON Invoice.CustomerId = Customer.CustomerId
+WHERE Customer.Country = 'Brazil'
+
 Provide a query that shows the invoices associated with each sales agent. The resultant table should include the Sales Agent's full name.
 
 Provide a query that shows the Invoice Total, Customer name, Country and Sale Agent name for all invoices and customers.
