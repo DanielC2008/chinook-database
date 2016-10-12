@@ -40,11 +40,22 @@ WHERE Employee.Title = 'Sales Support Agent'
 
 Provide a query that shows the Invoice Total, Customer name, Country and Sale Agent name for all invoices and customers.
 
-Select Invoice.Total AS 'Invoice Total', Customer.FirstName || ' ' || Customer.LastName AS 'Customer Name', Customer.Country, Employee.FirstName || ' ' || Employee.LastName AS 'Employee Name' FROM Invoice
+SELECT Invoice.Total AS 'Invoice Total', Customer.FirstName || ' ' || Customer.LastName AS 'Customer Name', Customer.Country, Employee.FirstName || ' ' || Employee.LastName AS 'Employee Name' FROM Invoice
 JOIN Customer ON Invoice.CustomerId = Customer.CustomerId
 JOIN Employee ON Customer.SupportRepId = Employee.EmployeeId
 
 How many Invoices were there in 2009 and 2011? What are the respective total sales for each of those years?
+
+SELECT * FROM Invoice
+WHERE InvoiceDate LIKE '2011%' OR InvoiceDate LIKE '2009%'
+
+SELECT SUM(Total) AS 'Total 2009' FROM Invoice
+WHERE InvoiceDate LIKE '2009%'
+
+SELECT SUM(Total) AS 'Total 2011' FROM Invoice
+WHERE InvoiceDate LIKE '2011%'
+
+
 
 Looking at the InvoiceLine table, provide a query that COUNTs the number of line items for Invoice ID 37.
 
