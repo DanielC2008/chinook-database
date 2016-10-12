@@ -38,8 +38,11 @@ JOIN Customer ON Invoice.CustomerId = Customer.CustomerId
 JOIN Employee ON Customer.SupportRepId = Employee.EmployeeId
 WHERE Employee.Title = 'Sales Support Agent'
 
-
 Provide a query that shows the Invoice Total, Customer name, Country and Sale Agent name for all invoices and customers.
+
+Select Invoice.Total AS 'Invoice Total', Customer.FirstName || ' ' || Customer.LastName AS 'Customer Name', Customer.Country, Employee.FirstName || ' ' || Employee.LastName AS 'Employee Name' FROM Invoice
+JOIN Customer ON Invoice.CustomerId = Customer.CustomerId
+JOIN Employee ON Customer.SupportRepId = Employee.EmployeeId
 
 How many Invoices were there in 2009 and 2011? What are the respective total sales for each of those years?
 
