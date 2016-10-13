@@ -71,6 +71,9 @@ GROUP BY Invoice.InvoiceId
 
 Provide a query that includes the track name with each invoice line item.
 
+SELECT Track.Name, InvoiceLineId FROM InvoiceLine
+JOIN Track ON Track.TrackId = InvoiceLine.Trackid
+
 Provide a query that includes the purchased track name AND artist name with each invoice line item.
 
 Provide a query that shows the # of invoices per country. HINT: GROUP BY
