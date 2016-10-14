@@ -108,8 +108,15 @@ FROM Invoice
 JOIN InvoiceLine ON Invoice.InvoiceId = InvoiceLine.InvoiceId
 GROUP BY Invoice.InvoiceId
 
-
 Provide a query that shows total sales made by each sales agent.
+
+SELECT Employee.FirstName || " " || Employee.LastName AS "Name", Title, Count(Invoice.Total) AS "Total Sales"
+From Employee
+JOIN Customer ON Employee.EmployeeId = Customer.SupportRepId
+JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId
+WHERE Title = "Sales Support Agent"
+GROUP BY "Name"
+
 
 Which sales agent made the most in sales in 2009?
 
