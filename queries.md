@@ -178,10 +178,19 @@ JOIN InvoiceLine ON InvoiceLine.TrackId = Track.TrackId
 JOIN Invoice ON Invoice.InvoiceId = InvoiceLine.InvoiceId
 WHERE Invoice.InvoiceDate LIKE "2013%"
 GROUP BY Track.Name
-ORDER BY "Most Sold Track"
+ORDER BY "Most Sold Track" DESC
 LIMIT 1
 
 Provide a query that shows the top 5 most purchased tracks over all.
+
+SELECT Track.Name, SUM(InvoiceLine.TrackId) AS "Most Sold Track"
+FROM Track
+JOIN InvoiceLine ON InvoiceLine.TrackId = Track.TrackId
+JOIN Invoice ON Invoice.InvoiceId = InvoiceLine.InvoiceId
+GROUP BY Track.Name
+ORDER BY "Most Sold Track" DESC
+LIMIT 5
+
 
 Provide a query that shows the top 3 best selling artists.
 
