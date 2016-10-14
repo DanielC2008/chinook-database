@@ -206,3 +206,12 @@ LIMIT 3
 
 
 Provide a query that shows the most purchased Media Type.
+
+SELECT MediaType.Name, SUM(InvoiceLine.TrackId) AS "Most Sold Tracks"
+FROM Track
+JOIN InvoiceLine ON InvoiceLine.TrackId = Track.TrackId
+JOIN Invoice ON Invoice.InvoiceId = InvoiceLine.InvoiceId
+JOIN MediaType ON Track.MediaTypeId = MediaType.MediaTypeId
+GROUP BY MediaType.Name
+ORDER BY "Most Sold Tracks" DESC
+LIMIT 1
