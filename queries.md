@@ -81,8 +81,10 @@ JOIN Track ON Track.TrackId = InvoiceLine.Trackid
 JOIN Album ON Album.AlbumId = Track.AlbumId
 JOIN Artist ON Artist.ArtistId = Album.ArtistId
 
-
 Provide a query that shows the # of invoices per country. HINT: GROUP BY
+
+SELECT BillingCountry, Count(BillingCountry) AS '# of Invoices' FROM Invoice
+GROUP BY BillingCountry
 
 Provide a query that shows the total number of tracks in each playlist. The Playlist name should be include on the resultant table.
 
