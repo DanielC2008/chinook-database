@@ -153,6 +153,11 @@ LIMIT 1
 
 Provide a query that shows the # of customers assigned to each sales agent.
 
+SELECT Employee.FirstName || " " || Employee.LastName AS "Name", Count(CustomerId) AS "Total Customers"
+FROM Employee
+JOIN Customer ON Employee.EmployeeId = Customer.SupportRepId
+GROUP BY "Name"
+
 Provide a query that shows the total sales per country. Which country's customers spent the most?
 
 Provide a query that shows the most purchased track of 2013.
