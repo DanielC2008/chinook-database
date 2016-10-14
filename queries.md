@@ -129,6 +129,13 @@ GROUP BY "Name"
 
 Which sales agent made the most in sales in 2010?
 
+SELECT Employee.FirstName || " " || Employee.LastName AS "Name", Employee.Title, Count(Invoice.Total) AS "Total Sales"
+From Employee
+JOIN Customer ON Employee.EmployeeId = Customer.SupportRepId
+JOIN Invoice ON Customer.CustomerId = Invoice.CustomerId
+WHERE Employee.Title = "Sales Support Agent" AND Invoice.InvoiceDate LIKE "2010%"
+GROUP BY "Name"
+
 Which sales agent made the most in sales over all?
 
 Provide a query that shows the # of customers assigned to each sales agent.
