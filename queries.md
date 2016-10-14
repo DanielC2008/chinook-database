@@ -172,6 +172,15 @@ LIMIT 1
 
 Provide a query that shows the most purchased track of 2013.
 
+SELECT Track.Name, SUM(InvoiceLine.TrackId) AS "Most Sold Track"
+FROM Track
+JOIN InvoiceLine ON InvoiceLine.TrackId = Track.TrackId
+JOIN Invoice ON Invoice.InvoiceId = InvoiceLine.InvoiceId
+WHERE Invoice.InvoiceDate LIKE "2013%"
+GROUP BY Track.Name
+ORDER BY "Most Sold Track"
+LIMIT 1
+
 Provide a query that shows the top 5 most purchased tracks over all.
 
 Provide a query that shows the top 3 best selling artists.
