@@ -160,6 +160,16 @@ GROUP BY "Name"
 
 Provide a query that shows the total sales per country. Which country's customers spent the most?
 
+SELECT BillingCountry, COUNT(Total) AS "Total Sales"
+FROM Invoice
+GROUP BY BillingCountry
+
+SELECT BillingCountry, COUNT(Total) AS "Total Sales"
+FROM Invoice
+GROUP BY BillingCountry
+ORDER BY "Total Sales" DESC
+LIMIT 1
+
 Provide a query that shows the most purchased track of 2013.
 
 Provide a query that shows the top 5 most purchased tracks over all.
